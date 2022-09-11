@@ -4,47 +4,39 @@ import React, { useState } from 'react';
 
 function App() {
   
-  const [counter, setCounter] = useState(0);
-  console.log(counter)
+  const [counter, setCounter] = useState(1);
   const [integer, setInteger] = useState(1);
-  console.log(integer)
 
-  const increase = () => {
-    parseInt(integer)
-    console.log(counter)
-    setCounter(integer)
-    console.log(integer) 
-      // setInteger(integer + 1)
-      setInteger(integer + counter) 
-      console.log(setInteger)
+    const increase = () => {
+      if(integer >= 0) {
+        setCounter(integer + counter)
+        console.log(integer)
+      }
+      // else {
+      //   setCounter(counter + 1) 
+      // }  
     };
     
     const decrease = () => {
-      setCounter(integer)
-      parseInt(counter)
-      parseInt(integer)
-      setInteger(integer - counter)
-      console.log(setInteger)
+      if(integer >= 0) {
+        setCounter(counter - integer)
+        console.log(integer)
+      }
+      // setCounter(counter - 1)
     };
     
     const reset = () => {
-      setInteger(0)
+      setCounter(0)
     }
 
     const handleChange =(event) => {
-      console.log(parseInt(event.target.value))
       setInteger(parseInt(event.target.value));
-      parseInt(integer);
-      console.log(integer)  
-      parseInt(counter);
-      console.log(counter)
-      // setInteger(integer + counter) 
     }
   
     return (
       <div className="App">
         <h1>Example Counter</h1>
-        <div>{integer}</div>
+        <div>{counter}</div>
         <div className='btn-container'>
           <div>
             <button className='control-btn' onClick={increase}> + </button>
@@ -59,7 +51,7 @@ function App() {
           <br/>
           <label>
             Add :
-            <input type="number" onChange={handleChange}/>
+            <input type="number" onChange={handleChange} defaultValue="1" />
           </label>
       </div>
     );
