@@ -51,10 +51,10 @@ function App() {
           <br/>
           <label>
             Add :
-            <input type="number" onChange={handleChange} defaultValue="1" />
+            <input type="number" onChange={handleChange} Value={integer} />
           </label>
       </div>
-    );
+    )
 
 }
 export default App;
